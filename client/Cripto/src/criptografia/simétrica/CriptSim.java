@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package criptografia.simétrica;
+package cripto;
 
 import java.io.DataOutputStream;
 import java.io.File;
@@ -21,6 +21,7 @@ import javax.crypto.IllegalBlockSizeException;
 import javax.crypto.KeyGenerator;
 import javax.crypto.NoSuchPaddingException;
 import javax.crypto.SecretKey;
+import cripto.BinaryDAO.*;
 
 /**
  *
@@ -31,6 +32,7 @@ public class CriptSim {
         try {
             KeyGenerator keygenerator = KeyGenerator.getInstance("DES");
             SecretKey chaveDES = keygenerator.generateKey();
+            BinaryDAO.writeBinary("C:\\Users\\User\\Desktop\\key.txt", chaveDES, false);
             return chaveDES;
         } catch (NoSuchAlgorithmException ex) {
             System.out.println("key error"+ex.getMessage());
@@ -93,7 +95,7 @@ public class CriptSim {
     }
     
      public static void simetricDecript(File file, SecretKey chaveDES, String dest) {
-
+            
         try {
 
            
@@ -119,7 +121,7 @@ public class CriptSim {
             
 
         } catch (NoSuchAlgorithmException | NoSuchPaddingException | InvalidKeyException | IllegalBlockSizeException | BadPaddingException e) {
-            System.out.println("Erro drecipt");
+            System.out.println("Erro drecipt "+e);
 
         } catch (FileNotFoundException ex) {
           
