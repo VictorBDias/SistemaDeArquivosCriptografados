@@ -3,7 +3,7 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
-package criptografia.simétrica;
+package cripto;
 
 import java.io.File;
 import java.io.FileInputStream;
@@ -14,15 +14,11 @@ import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
 
 /**
- *
- * @author ld_si
+ 
  */
 public class BinaryDAO {
 
-    public static void writeBinary(
-            String dir,
-            Object obj,
-            boolean append) {
+    public static void writeBinary(String dir, Object obj, boolean append) {
         File arquivo = new File(dir);
         ObjectOutputStream oos = null;
 
